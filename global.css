@@ -1,0 +1,143 @@
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans+Mono';
+@import 'https://fonts.googleapis.com/css?family=Akaya+Telivigala';
+
+body {
+    background-image: linear-gradient(45deg, rgb(26, 26, 26), rgb(52, 52, 52));
+    font-family: Noto Sans Mono;
+    overflow: hidden;
+}
+
+::selection {
+    user-select: none;
+}
+
+.terminal_window {
+    position: absolute;
+
+    height: 50%;
+    width: 35%;
+
+    top: 45%;
+    left: 30%;
+    opacity: 1.0;
+    background-color: rgb(11, 11, 11);
+
+    border-radius: 5%;
+
+    transition: top 0.3s, left 0.3s, height 0.3s, width 0.3s, opacity 0.3s;
+
+    animation: windowAppear 1 linear 0.1s;
+}
+
+.topbar {
+    display: flex;
+
+    height: 30px;
+    width: 100%;
+
+    background-color: rgb(33, 33, 33);
+    flex-wrap: wrap;
+}
+
+.topbarelement {
+    width: 30px;
+    height: 30px;
+
+    background-color: rgb(33, 33, 33);
+    border: none;
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.topbarelement.right {
+    margin-left : auto;
+}
+
+.topbarelement:active {
+    background-color: rgb(64, 64, 64);
+}
+
+.verticalmenu {
+    position: absolute;
+    top: 50%;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.menubutton {
+    height: 50px;
+    width: 50px;
+
+    border-radius: 10px;
+
+    padding: 0;
+    margin: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    border: none;
+
+    transition: height 0.1s, width 0.1s, background-color 0.1s, scale 0.1s;
+}
+
+.menubutton:hover {
+    background-color: rgba(240, 248, 255, 0.028);
+}
+
+.menubutton:active {
+    scale: 0.96;
+}
+
+.title {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    font-family: Akaya Telivigala;
+}
+
+#adomas {
+    color: rgb(177, 177, 177);
+    font-size: 100px;
+}
+
+#os {
+    color: black;
+    font-size: 150px;
+}
+
+.terminalfield {
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    overflow: hidden;
+}
+
+.terminaltext {
+    color: white;
+    padding: 0%;
+}
+
+.terminalerror {
+    color: rgb(255, 65, 65);
+    padding: 0%;
+}
+
+
+@keyframes windowAppear {
+    0%{
+        opacity: 0.0;
+        width: 0%;
+        height: 0%;
+    }
+
+    100%{
+        opacity: 1.0;
+        height: 50%;
+        width: 35%;
+    }
+}
