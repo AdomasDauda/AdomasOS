@@ -113,7 +113,7 @@ class Terminal {
                         }
 
                         if (!this.commands.has(this.text.textContent)) {
-                            this.createErrorLine('Invalid command. Maybe try pwd?');
+                            this.createErrorLine('Invalid command. Maybe try pwd, ls or cat?');
                             this.createNewLine('>');
                             return;
                         }
