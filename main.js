@@ -45,7 +45,8 @@ class Terminal {
         this.commands.set('>pwd', this.workingDirectory)
         this.commands.set('>ls', this.files.get(this.workingDirectory));
         this.commands.set('>cat bio.txt', this.contentsOfFiles.get('bio.txt'))
-
+        this.commands.set('>cat quotes.txt', this.contentsOfFiles.get('quotes.txt'))
+        this.commands.set('>cat secret.txt', this.contentsOfFiles.get('secret.txt'))
         this.terminal;
     }
 
@@ -103,11 +104,23 @@ class Terminal {
             if (this.isFieldSelected == true){
                 setTimeout(() => {
                     if (key == 'Enter'){
+                        if (this.text.textContent == '>clear'){
+                            this.lines.forEach(line => {
+                                this.terminalField.removeChild(line);
+                            });
+
+                            this.lines = new Array();
+                            this.createNewLine('>');
+                            return;
+                        }
+
                         if (!this.commands.has(this.text.textContent)) {
                             this.createErrorLine('Invalid command. Maybe try pwd?');
                             this.createNewLine('>');
                             return;
                         }
+
+
                         this.createNewLine(this.commands.get(this.text.textContent));
                         this.createNewLine('>');
                         return;
