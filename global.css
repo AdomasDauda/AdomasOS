@@ -17,14 +17,14 @@ body {
     height: 50%;
     width: 35%;
 
-    top: 45%;
-    left: 30%;
+    top: 20%;
+    left: 20%;
     opacity: 1.0;
     background-color: rgb(11, 11, 11);
 
     border-radius: 5%;
 
-    transition: top 0.3s, left 0.3s, height 0.3s, width 0.3s, opacity 0.3s;
+    transition: top 0.1s, left 0.1s, height 0.1s, width 0.1s, opacity 0.3s;
 
     animation: windowAppear 1 linear 0.1s;
 }

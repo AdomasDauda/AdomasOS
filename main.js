@@ -15,9 +15,6 @@ document.getElementById('newTerminal').addEventListener('click', () => {
     new Terminal();
 });
 
-
-
-
 class Terminal {
     constructor() {
         this.lines = new Array();
@@ -150,7 +147,7 @@ class Terminal {
                 this.terminal.style.top = document.getElementById('newTerminal').offsetHeight + '%';
                 setTimeout(() => {
                     document.body.removeChild(this.terminal)
-                }, 200);
+                }, 80);
             }
 
         });
