@@ -20,22 +20,33 @@ document.getElementById('newTerminal').addEventListener('click', () => {
 
 class Terminal {
     constructor() {
-
+        this.lines = new Array();
 
         this.workingDirectory = '/adomasdauda/home'
         this.isMouseOverTopBar = false;
         this.closing = false;
         this.isMouseOverTerminalField = false;
-        this.linecount = 0;
 
         this.createElements();
         this.addEventLiteners();
 
-        
+        this.contentsOfFiles = new Map();
+        this.contentsOfFiles.set('bio.txt', 'I am Adomas Daudaravicius. I am a developer!');
+        this.contentsOfFiles.set('quotes.txt', 'Varysit kazka palost?');
+        this.contentsOfFiles.set("secret.txt', 'shhhh don't tell anyone that I don't actualy study.");
+        this.contentsOfFiles.set('password.txt', 'stimpee123');
+
+        this.files = new Map();
+        this.files.set('/adomasdauda/home', 'bio.txt quotes.txt secret.txt');
+        this.files.set('/adomasdauda/', 'password.txt');
+
+
         this.commands = new Map();
-        
         this.commands.set('>pwd', this.workingDirectory)
-        console.log(this.commands);
+        this.commands.set('>ls', this.files.get(this.workingDirectory));
+        this.commands.set('>cat bio.txt', this.contentsOfFiles.get('bio.txt'))
+
+        this.terminal;
     }
 
 
@@ -111,8 +122,7 @@ class Terminal {
                     }
 
                     this.text.textContent = this.text.textContent + key;
-                }, 5)
-
+                }, 1)
             }
         });
 
@@ -172,7 +182,8 @@ class Terminal {
         this.text.className = 'terminaltext';
         this.text.textContent = text;
         this.terminalField.appendChild(this.text);
-        this.linecount++;
+        this.lines.push(this.text);
+        this.checkForTooManyLines();
     }
 
     createErrorLine = (text) => {
@@ -180,6 +191,14 @@ class Terminal {
         this.text.className = 'terminalerror';
         this.text.textContent = text;
         this.terminalField.appendChild(this.text);
-        this.linecount++;
+        this.lines.push(this.text);
+        this.checkForTooManyLines();
+    }
+
+    checkForTooManyLines = () => {
+        if (this.lines.length > 13){
+            this.terminalField.removeChild(this.lines[0]);
+            this.lines = this.lines.slice(1,this.lines.length);
+        }
     }
 }
