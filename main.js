@@ -70,6 +70,7 @@ class Terminal {
         this.terminalField = document.createElement('div');
         this.terminalField.className = 'terminalfield';
 
+        this.createNewLine('This is ADOMAS OS TERMINAL!');
         this.createNewLine('>');
         this.terminal.appendChild(this.terminalField);
 
