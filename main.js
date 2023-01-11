@@ -28,7 +28,7 @@ class Terminal {
         this.addEventLiteners();
 
         this.contentsOfFiles = new Map();
-        this.contentsOfFiles.set('bio.txt', 'I am Adomas Daudaravicius. I am a developer, a son and a cat owner.');
+        this.contentsOfFiles.set('bio.txt', 'I am Adomas Daudaravicius. I code sometimes.');
         this.contentsOfFiles.set('quotes.txt', 'Varysit kazka palost?');
         this.contentsOfFiles.set('secret.txt', "shhhh don't tell Hugo that I don't actualy study.");
         this.contentsOfFiles.set('password.txt', 'stimpee123');
